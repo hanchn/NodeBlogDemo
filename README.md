@@ -1,79 +1,98 @@
-## egg重写博客接口
-之前用React全家桶和Java的SpringBoot重构了自己的个人博客，虽然做出来了，但是还是初成版，自我感觉还是存在很多问题。由于对Java不是完全熟悉，所以写出来的接口可能有些瑕疵，所以最近学习了eggjs，使用了egg重写了后台接口。
+# Node.js + EJS + Mock 数据开发博客系统 实战教程大纲
 
-### 项目
-**项目地址**：[https://github.com/k-water/egg-blog](https://github.com/k-water/egg-blog)(喜欢的请点个star^_^)
+## 1. 项目介绍与准备
 
-**运行**
+* [项目简介与目标](./examples/0101/README.md)
+* [技术栈说明（Node.js、Express、EJS、Mock 数据、Nodemon等）](./examples/0102/README.md)
+* [博客核心功能预览（文章列表、详情、发布、编辑、删除、搜索、评论）](./examples/0103/README.md)
+* [项目目录结构设计与规范](./examples/0104/README.md)
+* [开发环境准备（Node.js、npm、VSCode、Git）](./examples/0105/README.md)
 
-``` bash
-#1
-git clone https://github.com/k-water/egg-blog.git
+## 2. Node.js & Express 基础入门
 
-#2 
-cd egg-blog
-npm install
+* [什么是 Node.js 和 Express？](./examples/0201/README.md)
+* [Express 项目初始化（`express-generator` or 手动）](./examples/0202/README.md)
+* [路由、控制器与中间件讲解](./examples/0203/README.md)
+* [本地开发与自动重启（Nodemon）](./examples/0204/README.md)
 
-#3
-修改config.default.js中sequelize的配置
-mysql的账号密码改为自己的
+## 3. EJS 模板引擎实战
 
-#4
-npm run dev
+* [EJS 基础语法与常见用法](./examples/0301/README.md)
+* [页面布局与模板继承（partials/header、footer）](./examples/0302/README.md)
+* [静态资源管理（CSS/JS/图片）](./examples/0303/README.md)
+* [数据渲染与模板交互](./examples/0304/README.md)
 
-#5 单元测试
-npm test
+## 4. Mock 数据驱动开发
 
-#6 本地测试
-npm run test-local
-```
-### 流程
+* [什么是 Mock 数据？为什么要用？](./examples/0401/README.md)
+* [常用 Mock 工具介绍（Mock.js/Faker.js/自定义 JSON 文件）](./examples/0402/README.md)
+* [集成 mock 数据（前后端分离/后端 mock）](./examples/0403/README.md)
+* [编写博客初始 mock 数据结构](./examples/0404/README.md)
+* [列表页/详情页/用户等 mock 场景](./examples/0405/README.md)
 
-#### 参考文档
-[Egg官方文档](eggjs.org/zh-cn/intro/)
+## 5. 博客核心功能开发
 
-[Sequelize(英文)](http://docs.sequelizejs.com/manual/installation/getting-started.html)
+### 5.1 文章模块
 
-[Sequelize(中文)](https://github.com/demopark/sequelize-docs-Zh-CN)
+* [文章列表（分页、筛选、排序、搜索）](./examples/0501/README.md)
+* [文章详情](./examples/0502/README.md)
+* [文章新增/编辑/删除（富文本 or Markdown 简化版）](./examples/0503/README.md)
+* [文章草稿和发布状态](./examples/0504/README.md)
+* [文章标签与分类](./examples/0505/README.md)
 
-#### 技术选型
+### 5.2 评论模块
 
-后台框架：Egg
-数据库：Mysql
-插件：egg-sequelize
-#### 接口测试
+* [评论数据结构](./examples/0506/README.md)
+* [文章下评论的增、删、查](./examples/0507/README.md)
+* [评论时间、昵称等展示](./examples/0508/README.md)
+* [评论数据 mock](./examples/0509/README.md)
 
-工具：PostMan
+### 5.3 用户与权限（简化实现）
 
-#### 数据库设计
+* [用户登录/登出 mock（session/cookie 简单模拟）](./examples/0510/README.md)
+* [用户身份区分（博主 vs 访客，权限控制）](./examples/0511/README.md)
+* [管理后台入口（隐藏式或简单路由）](./examples/0512/README.md)
 
-数据库设计跟之前的也略有不同，差别的是各实体之间的联系。
-实体有
-> 
-* blogs
-* comments
-* users
-* catalogs
-* authorities(用户角色)
+## 6. 接口与数据管理
 
-**ER图如下**
+* [路由与 RESTful API 设计规范](./examples/0601/README.md)
+* [Mock 数据的 CRUD 操作实现](./examples/0602/README.md)
+* [前端（EJS 模板）与后端（API）的数据交互](./examples/0603/README.md)
+* [错误处理与统一返回结构](./examples/0604/README.md)
 
-![](https://oc1gyfe6q.qnssl.com/18-3-15/51890030.jpg)
+## 7. 前端页面设计与用户体验
 
-**实体之间联系**
+* [首页（文章推荐、最新发布、标签导航）](./examples/0701/README.md)
+* [文章详情页（内容、评论、相关推荐）](./examples/0702/README.md)
+* [发布/编辑页（表单验证、提示）](./examples/0703/README.md)
+* [简易后台管理页（文章和评论管理）](./examples/0704/README.md)
 
-![](https://oc1gyfe6q.qnssl.com/18-3-15/91803747.jpg)
+## 8. 工程化与优化
 
-#### 开发的接口
+* [代码分层与模块化（controller/service/mock/routes）](./examples/0801/README.md)
+* [日志与异常处理](./examples/0802/README.md)
+* [配置管理（开发/生产环境）](./examples/0803/README.md)
+* [静态资源优化](./examples/0804/README.md)
+* [项目结构优化与自动化脚本](./examples/0805/README.md)
 
-![](https://oc1gyfe6q.qnssl.com/18-3-15/50736292.jpg)
+## 9. 测试与调试
 
-#### 个人总结
+* [接口测试（Postman/REST Client）](./examples/0901/README.md)
+* [Mock 数据测试](./examples/0902/README.md)
+* [页面功能手动测试与常见 Bug 排查](./examples/0903/README.md)
+* [常见调试技巧（断点、日志）](./examples/0904/README.md)
 
-基于学习的态度，重写了博客的后台接口，总的来说，egg使用起来还是挺方便的，官方文档写的也很好，基本遇到问题都能在官方issue找到类似的回答，写起来有点像Java的感觉。
-这次让我学习到的是，基础要扎实，像数据库的设计这方面，如果学不好，那一开始也无法下手，写出来的接口肯定也是不够好，因为要考虑返回数据格式的问题，什么接口返回什么格式等等。所以基础还是很重要的，之前学的时候一直认为没什么用，反正我又用不到，但是在实践中才发现，这些技能都是需要具备的，干起活来才能事半功倍。另外一点就是要仔细阅读文档，不要急于下手写代码，对一个框架有了初步的掌握，才去下手，那样遇到问题也能快速定位到错误的位置。
-以上，就是个人的小小体会啦~
+## 10. 部署上线与维护
 
-### 接口文档
+* [本地部署流程](./examples/1001/README.md)
+* [简易云服务器部署（如阿里云、腾讯云、Vercel、Railway）](./examples/1002/README.md)
+* [环境变量与配置](./examples/1003/README.md)
+* [简易安全防护（Helmet、XSS 预防）](./examples/1004/README.md)
 
-[API接口文档](http://sunshinelzb.coding.me/)
+## 11. 项目拓展与思考
+
+* [如何替换为真实数据库（如 MongoDB、MySQL）](./examples/1101/README.md)
+* [前后端分离的改造思路](./examples/1102/README.md)
+* [丰富博客功能（图片上传、点赞、标签云等）](./examples/1103/README.md)
+* [常见面试问题与实战收获总结](./examples/1104/README.md)
+
